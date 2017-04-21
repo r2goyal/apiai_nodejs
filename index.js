@@ -14,8 +14,6 @@ restService.post('/webhookToChatbot/', function (req, res) {
 
     try {
 //         var speech = 'empty speech';
-         var botResponse = '';
-
         if (req.body) {
 //             var requestBody = req.body;
 
@@ -42,21 +40,16 @@ restService.post('/webhookToChatbot/', function (req, res) {
 				}else{
 					console.log("in else response block............");
 					console.log(response.body);
-					botResponse += response.body;
+					return res.json({
+					    speech: response.body,
+					    displayText: response.body,
+					    source: 'r2goyal/apiai_nodejs'
+					});
 				}
 			})
-        }
-			
-        console.log('webhookToChatbot result: ', botResponse);
-
-        return res.json({
-            speech: botResponse,
-            displayText: botResponse,
-            source: 'r2goyal/apiai_nodejs'
-        });
+        }       
     } catch (err) {
         console.error("Can't process request for webhookToChatbot ", err);
-
         return res.status(400).json({
             status: {
                 code: 400,
