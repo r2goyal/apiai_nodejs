@@ -7,9 +7,9 @@ const bodyParser = require('body-parser');
 const restService = express();
 restService.use(bodyParser.json());
 
-restService.post('/hook', function (req, res) {
+restService.post('/webhookToChatbot/', function (req, res) {
 
-    console.log('hook request');
+    console.log('webhookToChatbot request....................');
 
     try {
         var speech = 'empty speech';
@@ -31,7 +31,7 @@ restService.post('/hook', function (req, res) {
             }
         }
 
-        console.log('result: ', speech);
+        console.log('webhookToChatbot result: ', speech);
 
         return res.json({
             speech: speech,
@@ -39,7 +39,7 @@ restService.post('/hook', function (req, res) {
             source: 'apiai-webhook-sample'
         });
     } catch (err) {
-        console.error("Can't process request", err);
+        console.error("Can't process request for webhookToChatbot ", err);
 
         return res.status(400).json({
             status: {
