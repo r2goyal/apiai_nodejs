@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const restService = express();
 restService.use(bodyParser.json());
 
-restService.post('/webhookToChatbot', function (req, res) {
+restService.post('/webhookToChatbot/', function (req, res) {
 
     console.log('webhookToChatbot request....................');
 
