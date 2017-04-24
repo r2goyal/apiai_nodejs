@@ -24,7 +24,8 @@ restService.post('/getUserData/', function (req, res) {
 					console.log('in getUserData Error sending messages: ', error);
 				}else{
 					console.log("in getUserData else response block............");
-					console.log(response.body);
+					console.log(response);
+					//console.log(response.body);
 					return res.json({
 					    speech: response.body,
 					    displayText: response.body,
