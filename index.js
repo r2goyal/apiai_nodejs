@@ -13,26 +13,41 @@ restService.post('/getUserData/', function (req, res) {
     	console.log("getUserData json === ");
 	console.log(JSON.stringify(req.body));
 	
-	    request({
-				url: 'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData',
-				method: 'POST',
-		    		json: true,
-		    		body: req.body,
-				async:false
-				}, function(error, response, body) {
-				if (error) {
-					console.log('in getUserData Error sending messages: ', error);
-				}else{
-					console.log("in getUserData else response block............");
-					console.log(response);
-					//console.log(response.body);
-					return res.json({
-					    speech: response.body,
-					    displayText: response.body,
-					    source: 'r2goyal/apiai_nodejs'
-					});
-				}
-			})
+// 	    request({
+// 				url: 'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData',
+// 				method: 'POST',
+// 		    		json: true,
+// 		    		body: req.body,
+// 				async:false
+// 				}, function(error, response, body) {
+// 				if (error) {
+// 					console.log('in getUserData Error sending messages: ', error);
+// 				}else{
+// 					console.log("in getUserData else response block............");
+// 					console.log(response);
+// 					//console.log(response.body);
+// 					return res.json({
+// 					    speech: response.body,
+// 					    displayText: response.body,
+// 					    source: 'r2goyal/apiai_nodejs'
+// 					});
+// 				}
+// 			})
+	
+	
+	request.post(
+    'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData',
+    { json: req.body },
+    function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log(body);
+        }
+    }
+);
+	
+	
+	
+	
 	
 });
 
