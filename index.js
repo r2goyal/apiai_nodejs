@@ -9,18 +9,18 @@ const restService = express();
 restService.use(bodyParser.json());
 
 restService.post('/getUserData/', function (req, res) {
-	  console.log('getUserData request....................');
-    console.log("getUserData json === ");
-	 console.log(JSON.stringify(req.body));
+	console.log('getUserData request....................');
+    	console.log("getUserData json === ");
+	console.log(JSON.stringify(req.body));
 	
 	    request({
-				url: 'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData,
+				url: 'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData',
 				method: 'POST',
 		    		data: req.body,
 				async:false
 				}, function(error, response, body) {
 				if (error) {
-					console.log('in getUserData Error sending messages: ', error)
+					console.log('in getUserData Error sending messages: ', error);
 				}else{
 					console.log("in getUserData else response block............");
 					console.log(response.body);
