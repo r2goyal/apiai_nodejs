@@ -13,24 +13,19 @@ restService.post('/getUserData/', function (req, res) {
     	console.log("getUserData json === ");
 	console.log(JSON.stringify(req.body));
 	request({
-		 url: "http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData",
-		 method: "POST",
-		json: true,
-		headers: {
-			"content-type": "application/json",
-		},
-		body: JSON.stringify(req.body),function (error, response, body) {
-			if (!error && response.statusCode === 200) {
-			    console.log(body)
-			}
-			else {
+                url : "http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData",
+                method : "POST",
+                headers : { "Content-Type" : "application/json"},
+                body : JSON.stringify(req.body),
+                json: true
+            },
+            function (error, response, body) {
+		console.log("body : ");
+		console.log(body);
+		
+            }
+        );
 
-			    console.log("error: " + error)
-			    console.log("response.statusCode: " + response.statusCode)
-			    console.log("response.statusText: " + response.statusText)
-			}
-		})
-	})
 // 	    request({
 // 				url: 'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData',
 // 				method: 'POST',
