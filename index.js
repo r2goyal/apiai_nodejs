@@ -12,9 +12,8 @@ restService.post('/webhookToChatbot/', function (req, res) {
 
     console.log('webhookToChatbot request....................');
     console.log("request json === ");
-	 console.log(req);
-    console.log("before response json ===");
-	 console.log(res);
+	 console.log(JSON.stringify(req.body));
+ 
     try {
 //         var speech = 'empty speech';
         if (req.body) {
