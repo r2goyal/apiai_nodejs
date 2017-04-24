@@ -12,7 +12,15 @@ restService.post('/getUserData/', function (req, res) {
 	console.log('getUserData request....................');
     	console.log("getUserData json === ");
 	console.log(JSON.stringify(req.body));
-	
+	request({
+		 url: "http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData",
+		 method: "POST",
+		json: true,
+		headers: {
+			"content-type": "application/json",
+		},
+		body: JSON.stringify(req.body)
+	})
 // 	    request({
 // 				url: 'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData',
 // 				method: 'POST',
@@ -32,22 +40,7 @@ restService.post('/getUserData/', function (req, res) {
 // 					    source: 'r2goyal/apiai_nodejs'
 // 					});
 // 				}
-// 			})
-	
-	
-	request.post(
-    'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData',
-    { json: req.body },
-    function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            console.log(body);
-        }
-    }
-);
-	
-	
-	
-	
+// 			})	
 	
 });
 
