@@ -19,7 +19,17 @@ restService.post('/getUserData/', function (req, res) {
 		headers: {
 			"content-type": "application/json",
 		},
-		body: JSON.stringify(req.body)
+		body: JSON.stringify(req.body),function (error, response, body) {
+			if (!error && response.statusCode === 200) {
+			    console.log(body)
+			}
+			else {
+
+			    console.log("error: " + error)
+			    console.log("response.statusCode: " + response.statusCode)
+			    console.log("response.statusText: " + response.statusText)
+			}
+		})
 	})
 // 	    request({
 // 				url: 'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData',
