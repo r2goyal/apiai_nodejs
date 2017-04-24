@@ -16,7 +16,8 @@ restService.post('/getUserData/', function (req, res) {
 	    request({
 				url: 'http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData',
 				method: 'POST',
-		    		data: req.body,
+		    		json: true,
+		    		body: req.body,
 				async:false
 				}, function(error, response, body) {
 				if (error) {
