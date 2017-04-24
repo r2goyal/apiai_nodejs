@@ -19,10 +19,18 @@ restService.post('/getUserData/', function (req, res) {
                 body : JSON.stringify(req.body),
                 json: true
             },
-            function (error, response, body) {
-		console.log("body : ");
-		console.log(body);
-		
+            function (error, resp, body) {
+		if (error) {
+			console.log('in getUserData Error sending messages: ', error);
+		}else{
+			console.log("in getUserData else response block............");
+			console.log(body);
+			return res.json({
+			    speech: body,
+			    displayText: body,
+			    source: 'r2goyal/apiai_nodejs'
+			});
+		}
             }
         );
 
