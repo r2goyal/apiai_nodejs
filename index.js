@@ -15,7 +15,7 @@ restService.post('/getUserData/', function (req, res) {
 	console.log("action");
 	console.log(req.body.result.action);
 	request({
-                url : "http://72.55.146.142:9091/chatbot/rest/Chatbot/getUserData",
+                url : "http://72.55.146.142:9091/chatbot/rest/Chatbot/"+req.body.result.action,
                 method : "POST",
                 headers : { "Content-Type" : "application/json"},
                 body : JSON.stringify(req.body),
